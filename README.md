@@ -1,5 +1,48 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/wEmr3Vja)
 
+---
+
+# RecipeStep Tracker
+
+## Overview
+This project is a two-page web app designed to create, manage, and view recipes. The goal is to implement key features for recipe management, including creating recipes, displaying them on a homepage, and navigating to individual recipe pages. The app will be built with Next.js and TypeScript, following the requirements of the project.
+
+---
+
+## Features
+
+### Homepage
+- **Recipe Cards**:
+  - Displays all created recipes as individual cards.
+  - Each card includes:
+    - The title of the recipe.
+    - [Optional] An image of the recipe (uploaded by the user during recipe creation).
+  - Clicking on a recipe card navigates to a page with the full recipe details.
+
+- **Navigation Bar**:
+  - A navigation bar at the top of the screen provides access to:
+    - The homepage.
+    - The recipe creation page.
+
+### Recipe Creation Page
+- **Form for Adding Recipes**:
+  - A form allows users to input details for a new recipe, including:
+    - Recipe title.
+    - List of ingredients.
+    - Recipe instructions (steps).
+    - [Optional] A photo of the recipe (uploaded by the user).
+  - Submitting the form adds the recipe to the homepage as a new recipe card and creates its corresponding detailed recipe page.
+
+### Recipe Detail Page
+- **Detailed View**:
+  - Clicking a recipe card on the homepage opens a page with:
+    - The recipe's title.
+    - The list of ingredients.
+    - The instructions.
+    - [Optional] The recipe's image.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
