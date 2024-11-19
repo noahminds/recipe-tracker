@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col items-center p-8 bg-gray-50">
+        <footer
+            className="flex flex-col items-center p-8 bg-gray-50"
+            aria-label="Footer"
+        >
             <div className="flex justify-center items-center space-x-14">
                 <Image src="/logo.svg" alt="spice codex logo" width={130} height={100} />
                 <div className="flex flex-col items-start max-w-sm text-sm">
