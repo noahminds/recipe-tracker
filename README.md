@@ -41,6 +41,13 @@ This project is a two-page web app designed to create, manage, and view recipes.
     - The instructions.
     - [Optional] The recipe's image.
 
+## Impementation Plan
+
+### Dynamic Routing
+- Recipes listed out as links
+  - Recipes link to the dynamic routes
+  - Slugs can be used to pull the id from the link and use a map that store the recipe titles
+
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
