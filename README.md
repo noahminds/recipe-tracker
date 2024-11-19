@@ -16,6 +16,8 @@ This project is a two-page web app designed to create, manage, and view recipes.
     - The title of the recipe.
     - [Optional] An image of the recipe (uploaded by the user during recipe creation).
   - Clicking on a recipe card navigates to a page with the full recipe details.
+  - [Optional] Recipe cards can be searched by title.
+  - [Optional] Local storage is used to persist recipe data between page reloads.
 
 - **Navigation Bar**:
   - A navigation bar at the top of the screen provides access to:
