@@ -1,4 +1,5 @@
-import Navbar from "@components/navbar";
+import Navbar from "@components/layout/navbar";
+import Footer from "./components/layout/footer";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -21,9 +22,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         {children}
-        <footer>
-          <p>&copy; 2024 Recipe Tracker</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

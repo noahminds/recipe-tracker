@@ -13,7 +13,7 @@ export default function Navbar() {
             >
                 Recipes
             </Link>
-            <Image src="/logo.svg" alt="logo" width={180} height={180} />
+            <Image src="/logo.svg" alt="spice codex logo" width={180} height={180} />
             <Link
                 href="/add-recipe"
                 className="text-lg font-medium text-black hover:text-red-800"
