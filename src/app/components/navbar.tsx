@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Navbar() {
     return (
         <nav
-            className="flex font-mono justify-center items-end space-x-12 p-3 bg-gray-50 shadow-md"
+            className="flex justify-center items-end space-x-12 p-3 bg-gray-50 shadow-md"
             aria-label="site navigation"
         >
             <Link
