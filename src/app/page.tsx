@@ -1,6 +1,6 @@
 // import Image from "next/image";
 import Link from "next/link";
-import RecipeCard from "@components/recipecard"
+import RecipeCard from "@components/recipeCard"
 import { Recipe } from "./types/recipe";
 
 export default function Home() {
