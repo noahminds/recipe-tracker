@@ -1,22 +1,29 @@
-// import { useRouter } from 'next/router';
-import { Recipe } from '../../../types/recipe';
+'use client'
 
+import React from 'react';
+import { use } from 'react';
+import { useRecipeContext } from '@components/recipeContext';
 
-export default function RecipePage() {
-    // const router = useRouter();
-    // const { slug } = router.query;
+interface RecipePageProps {
+    params: Promise<{ slug: string }>;
+}
 
-    // Temporary placeholder for recipe retrieved from context api
-    const recipe: Recipe = {
-        slug: 1,
-        title: "Pumpkin Pie with exploding sugar beans",
-        ingredients: ["Pumpkin", "Sugar", "Eggs", "Milk", "Cinnamon", "Pie Crust"],
-        instructions: [
-            "Mix pumpkin, sugar, eggs, milk, and cinnamon in a bowl.",
-            "Pour mixture into pie crust.",
-            "Bake for 45 minutes at 350 degrees."
-        ]
-    };
+export default function RecipePage({ params }: RecipePageProps) {
+    const { recipes, setRecipes } = useRecipeContext()
+    const { slug } = use(params);
+
+    // Lookup the recipe in the RecipeMap by the slug
+    const recipe = slug && recipes.get(slug);
+
+    if (!recipe) {
+        console.log("**ERROR** Recipe not found", slug);
+        return (
+            <main className="flex flex-col items-center justify-center h-screen">
+                <h1 className="text-2xl font-bold text-red-600">Recipe Not Found</h1>
+                <p className="text-lg">The recipe you are looking for does not exist.</p>
+            </main>
+        );
+    }
 
     return (
         <main>

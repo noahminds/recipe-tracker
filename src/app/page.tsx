@@ -1,25 +1,24 @@
-// import Image from "next/image";
+'use client'
+
 import Link from "next/link";
 import RecipeCard from "@components/recipeCard"
-import { Recipe } from "./types/recipe";
+import { useRecipeContext } from "@components/recipeContext";
 
 export default function Home() {
-  const recipe: Recipe = {
-    slug: 1,
-    title: "Pumpkin Pie with exploding sugar beans",
-    ingredients: ["Pumpkin", "Sugar", "Eggs", "Milk", "Cinnamon", "Pie Crust"],
-    instructions: [
-      "Mix pumpkin, sugar, eggs, milk, and cinnamon in a bowl.",
-      "Pour mixture into pie crust.",
-      "Bake for 45 minutes at 350 degrees."
-    ]
-  }
+
+  const { recipes } = useRecipeContext();
 
   return (
     <main>
-      <Link href={`/pages/recipes/${recipe.slug}`}>
-        <RecipeCard recipe={recipe} />
-      </Link>
+      <section
+        aria-label="Recipe Cards"
+      >
+        {Array.from(recipes.keys()).map((k) => (
+          <Link href={`/pages/recipes/${k}`} key={k}>
+            <RecipeCard recipe_key={k} />
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }
