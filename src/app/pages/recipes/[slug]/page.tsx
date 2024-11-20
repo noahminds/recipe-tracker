@@ -22,6 +22,9 @@ export default function RecipePage() {
         <main>
             <article className="flex flex-col space-y-4 p-8">
                 <h1 className="text-xl">{recipe.title}</h1>
+
+                {/* TODO: Add image */}
+
                 <div className="grid grid-cols-4">
                     <div aria-label="Ingredients">
                         <h2 className="text-lg font-medium underline">Ingredients:</h2>
