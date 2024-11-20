@@ -5,3 +5,7 @@ export type Recipe = {
     ingredients: string[];
     instructions: string[];
 }
+
+export type RecipeMap = {
+    [slug: number]: Recipe;
+}
