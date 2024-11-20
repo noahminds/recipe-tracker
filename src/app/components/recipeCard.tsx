@@ -42,9 +42,8 @@ export default function RecipeCard({ recipe_key }: RecipeCardProps) {
                 <Image
                     src={image || "/default-recipe-img.jpg"}
                     alt={`Photo of ${title}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-t-xl"
+                    fill
+                    className="rounded-t-xl object-cover"
                 />
             </div>
             <div className="flex-1 flex items-center justify-center text-center">
