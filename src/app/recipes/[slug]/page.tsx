@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { use } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useRecipeContext } from '@components/recipeContext';
 import Link from 'next/link';
 
@@ -10,11 +10,13 @@ interface RecipePageProps {
 }
 
 export default function RecipePage({ params }: RecipePageProps) {
-    const { recipes, setRecipes } = useRecipeContext()
+    const { recipes } = useRecipeContext()
     const { slug } = use(params);
+    const [recipe, setRecipe] = useState(() => recipes.get(slug));
 
-    // Lookup the recipe in the RecipeMap by the slug
-    const recipe = slug && recipes.get(slug);
+    useEffect(() => {
+        setRecipe(recipes.get(slug));
+    }, [recipes, slug])
 
     if (!recipe) {
         console.log("**ERROR** Recipe not found", slug);
