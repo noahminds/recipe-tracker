@@ -16,13 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-mono">
+      <body className="font-mono min-h-screen flex flex-col">
         <header>
           <Navbar />
         </header>
-        <RecipeContextProvider>
-          {children}
-        </RecipeContextProvider>
+        <div className="flex-grow">
+          <RecipeContextProvider>
+            {children}
+          </RecipeContextProvider>
+        </div>
         <Footer />
       </body>
     </html>
