@@ -1,7 +1,7 @@
 'use client'
 
 import { v4 as uuidv4 } from 'uuid';
-import { use, useState } from 'react';
+import { use, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
@@ -38,10 +38,19 @@ export default function EditRecipe({ params }: EditRecipeProps) {
         );
     }
 
-    // Pre-populate the form fields with the existing recipe
-    const [title, setTitle] = useState(recipe.title);
-    const [ingredients, setIngredients] = useState<ItemsObject>(arrayToItemsObject(recipe.ingredients));
-    const [instructions, setInstructions] = useState<ItemsObject>(arrayToItemsObject(recipe.instructions));
+    // Use states for form fields
+    const [title, setTitle] = useState('');
+    const [ingredients, setIngredients] = useState<ItemsObject>({});
+    const [instructions, setInstructions] = useState<ItemsObject>({});
+
+    // Pre-populate the fields when the component mounts or when the recipe changes
+    useEffect(() => {
+        if (recipe) {
+            setTitle(recipe.title);
+            setIngredients(arrayToItemsObject(recipe.ingredients));
+            setInstructions(arrayToItemsObject(recipe.instructions));
+        }
+    }, [recipe]);
 
     // Helper function for removing ingredients
     const handleRemoveIngredient = (id: string) => {
