@@ -21,7 +21,7 @@ export default function Navbar() {
                 priority
             />
             <Link
-                href="/create-new"
+                href="/create"
                 className="text-lg font-medium text-black hover:text-red-800"
             >
                 Create New

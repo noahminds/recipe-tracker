@@ -18,7 +18,7 @@ export default function Home() {
         }}
       >
         {recipeKeys.map((k) => (
-          <Link href={`/pages/recipes/${k}`} key={k}>
+          <Link href={`/recipes/${k}`} key={k}>
             <RecipeCard recipe_key={k} />
           </Link>
         ))}
