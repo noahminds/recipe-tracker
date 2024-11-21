@@ -14,34 +14,29 @@ export default function RecipeCard({ recipe_key }: RecipeCardProps) {
         console.log("**ERROR** Recipe not found", recipe_key);
         return (
             <article
-                className="flex flex-col items-center w-80 h-80 border rounded-xl shadow-sm bg-gray-100"
+                className="flex items-center justify-center w-60 h-64 border rounded-xl shadow-sm bg-gray-50"
                 aria-labelledby={`recipe-title-${recipe_key}`}
             >
-                <div className="flex-1 flex items-center justify-center text-center">
-                    <h2
-                        id={`recipe-title-${recipe_key}`}
-                        className="text-md font-medium p-4 m-2 text-red-600"
-                    >
-                        Recipe not found
-                    </h2>
-                </div>
+                <h2
+                    id={`recipe-title-${recipe_key}`}
+                    className="text-md font-medium p-4 m-2 text-center"
+                >
+                    Recipe not found
+                </h2>
             </article>
         );
     }
 
-    // Unpack title and image from recipe
-    const { title, image } = recipe;
-
     // Return the recipe card
     return (
         <article
-            className="flex flex-col items-center w-80 h-80 border rounded-xl shadow-sm bg-gray-50 hover:shadow-md hover:scale-105 hover:text-red-800"
+            className="flex flex-col items-center w-60 h-64 border rounded-xl shadow-sm bg-gray-50 hover:shadow-md hover:scale-105 hover:text-red-800"
             aria-labelledby={`recipe-title-${recipe_key}`}
         >
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-3/5">
                 <Image
-                    src={image || "/default-recipe-img.jpg"}
-                    alt={`Photo of ${title}`}
+                    src={recipe.image || "/default-recipe-img.jpg"}
+                    alt={`Photo of ${recipe.title}`}
                     fill
                     className="rounded-t-xl object-cover"
                 />
@@ -51,7 +46,7 @@ export default function RecipeCard({ recipe_key }: RecipeCardProps) {
                     id={`recipe-title-${recipe_key}`}
                     className="text-md font-medium p-4 m-2"
                 >
-                    {title}
+                    {recipe.title}
                 </h2>
             </div>
         </article>

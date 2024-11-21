@@ -5,15 +5,19 @@ import RecipeCard from "@components/recipeCard"
 import { useRecipeContext } from "@components/recipeContext";
 
 export default function Home() {
-
   const { recipes } = useRecipeContext();
+  const recipeKeys = Array.from(recipes.keys());
 
   return (
     <main>
       <section
         aria-label="Recipe Cards"
+        className="grid gap-4 p-4 justify-items-center"
+        style={{
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))"
+        }}
       >
-        {Array.from(recipes.keys()).map((k) => (
+        {recipeKeys.map((k) => (
           <Link href={`/pages/recipes/${k}`} key={k}>
             <RecipeCard recipe_key={k} />
           </Link>

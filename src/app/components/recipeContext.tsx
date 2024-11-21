@@ -63,6 +63,19 @@ const exampleRecipes: RecipeMap = new Map([
             "Add back the veal and heat through.",
         ]
     }],
+    ["4", {
+        title: "Spaghetti Carbonara",
+        ingredients: ["Spaghetti", "Eggs", "Parmesan Cheese", "Pancetta", "Pepper"],
+        instructions: [
+            "Cook spaghetti according to package directions.",
+            "Fry pancetta in a pan until crispy.",
+            "Whisk eggs and cheese together.",
+            "Drain spaghetti and add to the pan with pancetta.",
+            "Remove from heat and add egg mixture.",
+            "Stir until the eggs are cooked.",
+            "Season with pepper.",
+        ],
+    }]
 ]);
 
 export default function RecipeContextProvider({
