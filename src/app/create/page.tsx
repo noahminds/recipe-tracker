@@ -17,12 +17,20 @@ export default function CreateRecipe() {
     // Use states for form fields
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState<ItemsObject>({});
+    const [instructions, setInstructions] = useState<ItemsObject>({})
 
     // Helper function for removing ingredients
     const handleRemoveIngredient = (id: string) => {
         const updatedIngredients: ItemsObject = { ...ingredients };
         delete updatedIngredients[id];
         setIngredients(updatedIngredients)
+    };
+
+    // Helper function for removing instructions
+    const handleRemoveInstruction = (id: string) => {
+        const updatedInstructions: ItemsObject = { ...instructions };
+        delete updatedInstructions[id];
+        setInstructions(updatedInstructions)
     };
 
     return (
@@ -43,7 +51,12 @@ export default function CreateRecipe() {
                 <div>
                     {/* Todo add a functional button that opens a pop-up from which the user can upload an image file*/}
                     {/* Button placeholder - non-functional */}
-                    <button className="border pr-3 pl-3 rounded-full shadow-sm bg-blue-500 text-white">(Optional) Upload an Image</button>
+                    <button
+                        type="button"
+                        className="border pr-3 pl-3 rounded-full shadow-sm bg-blue-500 text-white"
+                    >
+                        (Optional) Upload an Image
+                    </button>
                 </div>
                 <div>
                     <label>Add Ingredients</label>
@@ -66,7 +79,22 @@ export default function CreateRecipe() {
                 </div>
                 <div>
                     <label>Add Instructions</label>
-                    {/* TODO: Re-use step component*/}
+                    <DynamicListField
+                        field="instructions"
+                        steps={instructions}
+                        onSubmit={(input) => {
+                            // Generate a unique id
+                            const id = uuidv4();
+
+                            // Add the new ingredient to the list
+                            setInstructions({
+                                ...instructions,
+                                [id]: input,
+                            });
+                        }}
+                        onRemove={handleRemoveInstruction}
+                        isOrdered={true}
+                    />
                 </div>
             </form>
         </main>

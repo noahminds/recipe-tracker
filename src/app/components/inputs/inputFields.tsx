@@ -21,12 +21,19 @@ interface DynamicListProps {
 }
 
 export function TextField({ field, value, onChange }: TextFieldProps) {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+        }
+    };
+
     return (
         <input
             id={field}
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder={`Input ${field.split('-')}...`}
         />
     );
@@ -35,14 +42,14 @@ export function TextField({ field, value, onChange }: TextFieldProps) {
 function DynamicList({ children, isOrdered }: DynamicListProps) {
     if (isOrdered) {
         return (
-            <ol className="list-decimal pl-5">
+            <ol className="list-decimal list-inside">
                 {children}
             </ol>
         );
     }
     else {
         return (
-            <ul className="list-disc pl-5">
+            <ul className="list-disc list-inside">
                 {children}
             </ul>
         );
