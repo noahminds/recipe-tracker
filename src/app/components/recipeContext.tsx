@@ -6,7 +6,7 @@ interface RecipeContextProviderProps {
     children: ReactNode;
 }
 
-type Recipe = {
+export type Recipe = {
     title: string;
     image?: string;
     ingredients: string[];

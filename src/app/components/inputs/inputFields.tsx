@@ -71,7 +71,7 @@ export function DynamicListField({ field, steps, onSubmit, onRemove, isOrdered }
                 {Object.entries(steps).map(([id, item]) => (
                     <li key={id}>
                         <button
-                            id="delete-button"
+                            id="delete-list-item"
                             type="button"
                             onClick={() => {
                                 onRemove(id);
@@ -84,7 +84,7 @@ export function DynamicListField({ field, steps, onSubmit, onRemove, isOrdered }
                 ))}
             </DynamicList>
             <button
-                id="add-button"
+                id="add-list-item"
                 type="button"
                 onClick={() => {
                     if (input.trim() != '') {

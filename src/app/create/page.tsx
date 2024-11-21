@@ -1,7 +1,7 @@
 'use client'
 
 import { v4 as uuidv4 } from 'uuid';
-import { useRecipeContext } from '@components/recipeContext';
+import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { useState } from 'react';
 import './styles.css';
@@ -34,10 +34,32 @@ export default function CreateRecipe() {
     };
 
     return (
-        <main>
+        <main className="text-gray-700">
             <form
                 aria-label="New recipe form"
-                className="flex flex-col gap-y-8">
+                className="flex flex-col gap-y-8"
+                onSubmit={(e) => {
+                    e.preventDefault();
+
+                    if (title.trim() != '' && Object.keys(ingredients).length > 0 && Object.keys(instructions).length > 0) {
+                        const recipe: Recipe = {
+                            title: title,
+                            ingredients: Object.values(ingredients),
+                            instructions: Object.values(instructions),
+                        };
+
+                        const id = uuidv4();
+
+                        setRecipes(new Map(recipes).set(id, recipe));
+
+                        // Clear form fields
+                        setTitle('');
+                        setIngredients({});
+                        setInstructions({});
+                    }
+
+                }}
+            >
                 <div>
                     <label>Recipe Name</label>
                     <TextField
@@ -52,8 +74,9 @@ export default function CreateRecipe() {
                     {/* Todo add a functional button that opens a pop-up from which the user can upload an image file*/}
                     {/* Button placeholder - non-functional */}
                     <button
+                        id="upload-image"
                         type="button"
-                        className="border pr-3 pl-3 rounded-full shadow-sm bg-blue-500 text-white"
+                        className="border px-2 rounded-full shadow-sm bg-blue-500 text-white"
                     >
                         (Optional) Upload an Image
                     </button>
@@ -95,6 +118,15 @@ export default function CreateRecipe() {
                         onRemove={handleRemoveInstruction}
                         isOrdered={true}
                     />
+                </div>
+                <div>
+                    <button
+                        id="submit-recipe"
+                        type="submit"
+                        className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                    >
+                        Add to Recipes
+                    </button>
                 </div>
             </form>
         </main>
