@@ -12,7 +12,7 @@ export default function Home() {
     <main>
       <section
         aria-label="Recipe Cards"
-        className="grid gap-4 p-4 justify-items-center"
+        className="grid gap-4 justify-items-center"
         style={{
           gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))"
         }}

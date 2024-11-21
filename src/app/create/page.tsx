@@ -1,9 +1,14 @@
 'use client'
 
+import { v4 as uuidv4 } from 'uuid';
 import { useRecipeContext } from '@components/recipeContext';
-import TextField from '@components/inputs/editableTextField'
+import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { useState } from 'react';
 import './styles.css';
+
+// Key - id: string
+// Value - item: string
+export type ItemsObject = Record<string, string>;
 
 export default function CreateRecipe() {
     // Use recipe context
@@ -11,13 +16,17 @@ export default function CreateRecipe() {
 
     // Use states for form fields
     const [title, setTitle] = useState('');
+    const [ingredients, setIngredients] = useState<ItemsObject>({})
 
     return (
         <main>
-            <form aria-label="New recipe form">
+            <form
+                aria-label="New recipe form"
+                className="flex flex-col gap-y-8">
                 <div>
                     <label>Recipe Name</label>
                     <TextField
+                        field="recipe-name"
                         value={title}
                         onChange={(value) => {
                             setTitle(value);
@@ -31,7 +40,21 @@ export default function CreateRecipe() {
                 </div>
                 <div>
                     <label>Add Ingredients</label>
-                    {/* TODO: Add step component enabling users to add items to a list */}
+                    <DynamicListField
+                        field="ingredients"
+                        steps={ingredients}
+                        onSubmit={(input) => {
+                            // Generate a unique id
+                            const id = uuidv4();
+
+                            // Add the new ingredient to the list
+                            setIngredients({
+                                ...ingredients,
+                                [id]: input,
+                            });
+                        }}
+                        isOrdered={false}
+                    />
                 </div>
                 <div>
                     <label>Add Instructions</label>
