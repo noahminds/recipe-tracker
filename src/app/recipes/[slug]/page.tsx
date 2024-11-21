@@ -3,6 +3,7 @@
 import React from 'react';
 import { use } from 'react';
 import { useRecipeContext } from '@components/recipeContext';
+import Link from 'next/link';
 
 interface RecipePageProps {
     params: Promise<{ slug: string }>;
@@ -49,6 +50,15 @@ export default function RecipePage({ params }: RecipePageProps) {
                             ))}
                         </ol>
                     </div>
+                </div>
+                <div>
+                    <Link
+                        href={`/edit/${slug}`}
+                        key={slug}
+                        className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                    >
+                        Edit Recipe
+                    </Link>
                 </div>
             </article>
         </main>

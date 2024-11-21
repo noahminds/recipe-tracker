@@ -2,7 +2,7 @@
 
 import { v4 as uuidv4 } from 'uuid';
 import { use, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { ItemsObject } from '@/app/create/page';
