@@ -11,6 +11,12 @@ interface DynamicListFieldProps {
     field: string;
     steps: ItemsObject;
     onSubmit: (input: string) => void;
+    onRemove: (id: string) => void;
+    isOrdered: boolean;
+}
+
+interface DynamicListProps {
+    children: React.ReactNode;
     isOrdered: boolean;
 }
 
@@ -24,11 +30,6 @@ export function TextField({ field, value, onChange }: TextFieldProps) {
             placeholder={`Input ${field.split('-')}...`}
         />
     );
-}
-
-interface DynamicListProps {
-    children: React.ReactNode;
-    isOrdered: boolean;
 }
 
 function DynamicList({ children, isOrdered }: DynamicListProps) {
@@ -48,7 +49,7 @@ function DynamicList({ children, isOrdered }: DynamicListProps) {
     }
 }
 
-export function DynamicListField({ field, steps, onSubmit, isOrdered }: DynamicListFieldProps) {
+export function DynamicListField({ field, steps, onSubmit, onRemove, isOrdered }: DynamicListFieldProps) {
     const [input, setInput] = useState('');
 
     return (
@@ -60,13 +61,20 @@ export function DynamicListField({ field, steps, onSubmit, isOrdered }: DynamicL
                 placeholder={`Add ${field.split('-')}...`}
             />
             <DynamicList isOrdered={isOrdered}>
-                {Object.entries(steps).map(([id, item]) => {
-                    return (
-                        <li key={id}>
+                {Object.entries(steps).map(([id, item]) => (
+                    <li key={id}>
+                        <button
+                            id="delete-button"
+                            type="button"
+                            onClick={() => {
+                                onRemove(id);
+                            }}
+                            className="hover:scale-105 hover:line-through hover:text-red-800"
+                        >
                             {item}
-                        </li>
-                    );
-                })}
+                        </button>
+                    </li>
+                ))}
             </DynamicList>
             <button
                 id="add-button"

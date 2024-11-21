@@ -16,7 +16,14 @@ export default function CreateRecipe() {
 
     // Use states for form fields
     const [title, setTitle] = useState('');
-    const [ingredients, setIngredients] = useState<ItemsObject>({})
+    const [ingredients, setIngredients] = useState<ItemsObject>({});
+
+    // Helper function for removing ingredients
+    const handleRemoveIngredient = (id: string) => {
+        const updatedIngredients: ItemsObject = { ...ingredients };
+        delete updatedIngredients[id];
+        setIngredients(updatedIngredients)
+    };
 
     return (
         <main>
@@ -53,6 +60,7 @@ export default function CreateRecipe() {
                                 [id]: input,
                             });
                         }}
+                        onRemove={handleRemoveIngredient}
                         isOrdered={false}
                     />
                 </div>
