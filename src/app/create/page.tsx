@@ -1,6 +1,7 @@
 'use client'
 
 import { v4 as uuidv4 } from 'uuid';
+import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { useState } from 'react';
@@ -13,6 +14,9 @@ export type ItemsObject = Record<string, string>;
 export default function CreateRecipe() {
     // Use recipe context
     const { recipes, setRecipes } = useRecipeContext();
+
+    // Use router
+    const router = useRouter();
 
     // Use states for form fields
     const [title, setTitle] = useState('');
@@ -56,6 +60,9 @@ export default function CreateRecipe() {
                         setTitle('');
                         setIngredients({});
                         setInstructions({});
+
+                        // Route the user to the recipe's detail page
+                        router.push(`/recipes/${id}`);
                     }
 
                 }}
