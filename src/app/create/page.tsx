@@ -38,7 +38,7 @@ export default function CreateRecipe() {
     };
 
     return (
-        <main className="text-gray-700">
+        <main className="text-gray-700 p-8">
             <form
                 aria-label="New recipe form"
                 className="flex flex-col gap-y-8"
@@ -67,8 +67,7 @@ export default function CreateRecipe() {
 
                 }}
             >
-                <div>
-                    <label>Name Your Recipe</label>
+                <div className="flex flex-col space-y-2 w-96">
                     <TextField
                         field="recipe-name"
                         value={title}
@@ -88,44 +87,46 @@ export default function CreateRecipe() {
                         (Optional) Upload an Image
                     </button>
                 </div>
-                <div>
-                    <label>Add Ingredients</label>
-                    <DynamicListField
-                        field="ingredients"
-                        steps={ingredients}
-                        onSubmit={(input) => {
-                            // Generate a unique id
-                            const id = uuidv4();
+                <section className="grid grid-cols-5">
+                    <div className="col-span-2 w-3/4">
+                        <label htmlFor="ingredients">Ingredients</label>
+                        <DynamicListField
+                            field="ingredients"
+                            steps={ingredients}
+                            onSubmit={(input) => {
+                                // Generate a unique id
+                                const id = uuidv4();
 
-                            // Add the new ingredient to the list
-                            setIngredients({
-                                ...ingredients,
-                                [id]: input,
-                            });
-                        }}
-                        onRemove={handleRemoveIngredient}
-                        isOrdered={false}
-                    />
-                </div>
-                <div>
-                    <label>Add Instructions</label>
-                    <DynamicListField
-                        field="instructions"
-                        steps={instructions}
-                        onSubmit={(input) => {
-                            // Generate a unique id
-                            const id = uuidv4();
+                                // Add the new ingredient to the list
+                                setIngredients({
+                                    ...ingredients,
+                                    [id]: input,
+                                });
+                            }}
+                            onRemove={handleRemoveIngredient}
+                            isOrdered={false}
+                        />
+                    </div>
+                    <div className="w-3/4 col-start-3 col-span-3">
+                        <label htmlFor="instructions">Instructions</label>
+                        <DynamicListField
+                            field="instructions"
+                            steps={instructions}
+                            onSubmit={(input) => {
+                                // Generate a unique id
+                                const id = uuidv4();
 
-                            // Add the new ingredient to the list
-                            setInstructions({
-                                ...instructions,
-                                [id]: input,
-                            });
-                        }}
-                        onRemove={handleRemoveInstruction}
-                        isOrdered={true}
-                    />
-                </div>
+                                // Add the new ingredient to the list
+                                setInstructions({
+                                    ...instructions,
+                                    [id]: input,
+                                });
+                            }}
+                            onRemove={handleRemoveInstruction}
+                            isOrdered={true}
+                        />
+                    </div>
+                </section>
                 <div>
                     <button
                         id="submit-recipe"

@@ -35,24 +35,24 @@ export default function RecipePage({ params }: RecipePageProps) {
 
                 {/* TODO: Add image */}
 
-                <div className="grid grid-cols-4">
+                <section className="grid grid-cols-5">
                     <div aria-label="Ingredients">
                         <h2 className="text-lg font-medium underline">Ingredients:</h2>
-                        <ul className="list-disc pl-5">
+                        <ul className="list-disc list-inside">
                             {recipe.ingredients.map((ingredient, index) => (
                                 <li key={index}>{ingredient}</li>
                             ))}
                         </ul>
                     </div>
-                    <div aria-label="Instructions" className="col-start-2 col-span-3">
+                    <div aria-label="Instructions" className="col-start-3 col-span-3">
                         <h2 className="text-lg font-medium underline">Instructions:</h2>
-                        <ol className="list-decimal pl-5">
+                        <ol className="list-decimal list-inside">
                             {recipe.instructions.map((instruction, index) => (
-                                <li key={index} className="ml-4">{instruction}</li>
+                                <li key={index}>{instruction}</li>
                             ))}
                         </ol>
                     </div>
-                </div>
+                </section>
                 <div>
                     <Link
                         href={`/edit/${slug}`}
