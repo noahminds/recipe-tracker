@@ -9,6 +9,7 @@ interface ModalProps {
 export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalProps) {
     const [modal, setModal] = useState(false);
     const [image, setImage] = useState('');
+    const [uploaded, setUploaded] = useState(false);
 
     // Helper function to toggle the modal
     const toggleModal = () => {
@@ -17,16 +18,23 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
 
     return (
         <>
-            <button
-                id="upload-image"
-                type="button"
-                className="border px-2 rounded-full shadow-sm bg-blue-500 text-white"
-                onClick={toggleModal}
-            >
-                (Optional) {curr_image && curr_image.trim() !== '' ? 'Replace Image' : 'Upload Image'}
-            </button>
+            <section
+                id="image-upload"
+                className="flex items-center gap-x-4">
+                <button
+                    id="upload-image"
+                    type="button"
+                    className="border px-2 rounded-full shadow-sm bg-blue-500 text-white"
+                    onClick={toggleModal}
+                >
+                    (Optional) {curr_image && curr_image.trim() !== '' ? 'Replace Image' : 'Upload Image'}
+                </button>
+                {uploaded && (
+                    <div className="text-green-500 text-xs text-center">New image uploaded!</div>
+                )}
+            </section>
             {modal && (
-                <div
+                <section
                     id="modal"
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
@@ -35,7 +43,7 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                         className="fixed inset-0 bg-black opacity-50"
                         onClick={toggleModal}
                     ></div>
-                    <section
+                    <div
                         id="modal-content"
                         className="relative bg-white pt-8 px-8 pb-3 rounded-lg shadow-lg z-10 w-1/2"
                     >
@@ -61,6 +69,7 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                                     onClick={() => {
                                         if (image.trim() != '') {
                                             onModalSubmit(image);
+                                            setUploaded(true);
                                             toggleModal();
                                         }
                                     }}
@@ -69,8 +78,8 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                                 </button>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             )}
         </>
     );
