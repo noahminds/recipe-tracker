@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { useState } from 'react';
+import ImageUploadModal from '@components/inputs/imageUploadModal';
 import '../globals.css';
 
 // Key - id: string
@@ -22,6 +23,7 @@ export default function CreateRecipe() {
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState<ItemsObject>({});
     const [instructions, setInstructions] = useState<ItemsObject>({})
+    const [image, setImage] = useState<string | null>(null);
 
     // Helper function for removing ingredients
     const handleRemoveIngredient = (id: string) => {
@@ -52,6 +54,10 @@ export default function CreateRecipe() {
                             instructions: Object.values(instructions),
                         };
 
+                        if (image) {
+                            recipe.image = image;
+                        }
+
                         const id = uuidv4();
 
                         setRecipes(new Map(recipes).set(id, recipe));
@@ -74,18 +80,14 @@ export default function CreateRecipe() {
                         onChange={(value) => {
                             setTitle(value);
                         }}
+                        className="text-xl"
                     />
                 </div>
                 <div>
-                    {/* TODO: add a functional button that opens a pop-up from which the user can upload an image file*/}
-                    {/* Button placeholder - non-functional */}
-                    <button
-                        id="upload-image"
-                        type="button"
-                        className="border px-2 rounded-full shadow-sm bg-blue-500 text-white"
-                    >
-                        (Optional) Upload an Image
-                    </button>
+                    <ImageUploadModal
+                        curr_image={image}
+                        onModalSubmit={(input: string) => setImage(input)}
+                    />
                 </div>
                 <section className="grid grid-cols-5">
                     <div className="col-span-2 w-3/4">

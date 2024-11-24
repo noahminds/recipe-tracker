@@ -5,6 +5,7 @@ interface TextFieldProps {
     field: string;
     value: string;
     onChange: (value: string) => void;
+    className?: string;
 }
 
 interface DynamicListFieldProps {
@@ -20,7 +21,7 @@ interface DynamicListProps {
     isOrdered: boolean;
 }
 
-export function TextField({ field, value, onChange }: TextFieldProps) {
+export function TextField({ field, value, onChange, className }: TextFieldProps) {
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -35,6 +36,7 @@ export function TextField({ field, value, onChange }: TextFieldProps) {
             onChange={(e) => onChange(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={`Input ${field.split('-').join(' ')}...`}
+            className={className}
         />
     );
 }

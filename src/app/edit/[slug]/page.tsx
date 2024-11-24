@@ -110,6 +110,7 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                         onChange={(value) => {
                             setTitle(value);
                         }}
+                        className="text-xl"
                     />
                 </div>
                 <div>

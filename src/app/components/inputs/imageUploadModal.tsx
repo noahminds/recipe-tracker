@@ -51,6 +51,7 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                                 field="image-address"
                                 value={image}
                                 onChange={setImage}
+                                className="text-base"
                             />
                             <div className="flex justify-center">
                                 <button
