@@ -83,12 +83,10 @@ export default function CreateRecipe() {
                         className="text-xl"
                     />
                 </div>
-                <div>
-                    <ImageUploadModal
-                        curr_image={image}
-                        onModalSubmit={(input: string) => setImage(input)}
-                    />
-                </div>
+                <ImageUploadModal
+                    curr_image={image}
+                    onModalSubmit={(input: string) => setImage(input)}
+                />
                 <section className="grid grid-cols-5">
                     <div className="col-span-2 w-3/4">
                         <label htmlFor="ingredients">Ingredients</label>

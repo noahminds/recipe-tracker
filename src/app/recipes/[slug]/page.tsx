@@ -54,7 +54,7 @@ export default function RecipePage({ params }: RecipePageProps) {
                     <Link
                         href={`/edit/${slug}`}
                         key={slug}
-                        className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                        className="border py-1 rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
                     >
                         Edit Recipe
                     </Link>
