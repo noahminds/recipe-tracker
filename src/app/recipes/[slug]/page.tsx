@@ -29,36 +29,45 @@ export default function RecipePage({ params }: RecipePageProps) {
     }
 
     return (
-        <main>
+        <main aria-labelledby="recipe-title">
             <article className="flex flex-col space-y-8 p-8">
-                <h1 className="text-4xl text-red-800">{recipe.title}</h1>
-                <section className="grid grid-cols-5">
-                    <div aria-label="Ingredients">
-                        <h2 className="text-lg font-medium underline">Ingredients:</h2>
-                        <ul className="list-disc list-inside">
+                <h1 id="recipe-title" className="text-4xl text-red-800">{recipe.title}</h1>
+                <section className="grid grid-cols-5" aria-label="Recipe details">
+                    <div>
+                        <h2 id="ingredients-heading" className="text-lg font-medium underline">Ingredients</h2>
+                        <ul
+                            role="list"
+                            aria-labelledby="ingredients-heading"
+                            className="list-disc list-inside"
+                        >
                             {recipe.ingredients.map((ingredient, index) => (
-                                <li key={index}>{ingredient}</li>
+                                <li key={index} role="list-item">{ingredient}</li>
                             ))}
                         </ul>
                     </div>
-                    <div aria-label="Instructions" className="col-start-3 col-span-3">
-                        <h2 className="text-lg font-medium underline">Instructions:</h2>
-                        <ol className="list-decimal list-inside">
+                    <div className="col-start-3 col-span-3">
+                        <h2 id="instructions-heading" className="text-lg font-medium underline">Instructions</h2>
+                        <ol
+                            role="list"
+                            aria-labelledby="instructions-heading"
+                            className="list-decimal list-inside"
+                        >
                             {recipe.instructions.map((instruction, index) => (
-                                <li key={index}>{instruction}</li>
+                                <li key={index} role="list-item">{instruction}</li>
                             ))}
                         </ol>
                     </div>
                 </section>
-                <div>
+                <nav aria-label="Recipe actions">
                     <Link
                         href={`/edit/${slug}`}
                         key={slug}
                         className="border py-1 rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                        aria-label="Edit this recipe"
                     >
                         Edit Recipe
                     </Link>
-                </div>
+                </nav>
             </article>
         </main>
     );

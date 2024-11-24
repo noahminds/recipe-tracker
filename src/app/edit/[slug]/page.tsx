@@ -76,9 +76,9 @@ export default function EditRecipe({ params }: EditRecipeProps) {
     }
 
     return (
-        <main className="text-gray-700 p-8">
+        <main aria-labelledby="edit-recipe-title" className="text-gray-700 p-8">
             <form
-                aria-label="New recipe form"
+                aria-label="Edit recipe form"
                 className="flex flex-col gap-y-8"
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -111,15 +111,16 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                             setTitle(value);
                         }}
                         className="text-xl"
+                        aria-label="Recipe name input"
                     />
                 </div>
                 <ImageUploadModal
                     curr_image={image}
                     onModalSubmit={(input: string) => setImage(input)}
                 />
-                <section className="grid grid-cols-5">
+                <section className="grid grid-cols-5" aria-label="Recipe details">
                     <div className="col-span-2 w-3/4">
-                        <label>Ingredients</label>
+                        <label htmlFor="ingredients">Ingredients</label>
                         <DynamicListField
                             field="ingredients"
                             steps={ingredients}
@@ -138,7 +139,7 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                         />
                     </div>
                     <div className="w-3/4 col-start-3 col-span-3">
-                        <label>Instructions</label>
+                        <label htmlFor="instructions">Instructions</label>
                         <DynamicListField
                             field="instructions"
                             steps={instructions}
@@ -157,12 +158,13 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                         />
                     </div>
                 </section>
-                <div className="flex flex-row gap-x-5">
+                <nav aria-label="Form actions" className="flex flex-row gap-x-5">
                     <button
                         id="cancel-edit"
                         type="button"
                         className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
                         onClick={() => handleCancel()}
+                        aria-label="Cancel editing recipe"
                     >
                         Cancel
                     </button>
@@ -170,10 +172,11 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                         id="submit-recipe"
                         type="submit"
                         className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                        aria-label="Save recipe changes"
                     >
                         Update Recipe
                     </button>
-                </div>
+                </nav>
             </form>
         </main>
     );

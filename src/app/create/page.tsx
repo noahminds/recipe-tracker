@@ -40,7 +40,10 @@ export default function CreateRecipe() {
     };
 
     return (
-        <main className="text-gray-700 p-8">
+        <main
+            aria-labelledby="create-recipe-title"
+            className="text-gray-700 p-8"
+        >
             <form
                 aria-label="New recipe form"
                 className="flex flex-col gap-y-8"
@@ -81,13 +84,14 @@ export default function CreateRecipe() {
                             setTitle(value);
                         }}
                         className="text-xl"
+                        aria-label="Recipe name input"
                     />
                 </div>
                 <ImageUploadModal
                     curr_image={image}
                     onModalSubmit={(input: string) => setImage(input)}
                 />
-                <section className="grid grid-cols-5">
+                <section className="grid grid-cols-5" aria-label="Recipe details">
                     <div className="col-span-2 w-3/4">
                         <label htmlFor="ingredients">Ingredients</label>
                         <DynamicListField
@@ -127,15 +131,16 @@ export default function CreateRecipe() {
                         />
                     </div>
                 </section>
-                <div>
+                <nav aria-label="Form actions">
                     <button
                         id="submit-recipe"
                         type="submit"
                         className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                        aria-label="Add recipe to collection"
                     >
                         Add to Recipes
                     </button>
-                </div>
+                </nav>
             </form>
         </main>
     );

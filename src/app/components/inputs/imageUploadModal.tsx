@@ -37,6 +37,9 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                 <section
                     id="modal"
                     className="fixed inset-0 flex items-center justify-center z-50"
+                    role="dialog"
+                    aria-labelledby="modal-title"
+                    aria-modal="true"
                 >
                     <div
                         id="overlay"
@@ -51,15 +54,20 @@ export default function ImageUploadModal({ curr_image, onModalSubmit }: ModalPro
                             id="close-modal"
                             className="absolute top-2 text-sm right-2 px-2 py-1 bg-gray-500 text-white rounded"
                             onClick={toggleModal}
+                            aria-label="Close image upload modal"
                         >
                             Close
                         </button>
+                        <h2 id="modal-title" className="text-lg mb-2">
+                            Enter Recipe Image Address (URL)
+                        </h2>
                         <div className="flex flex-col mt-4">
                             <TextField
-                                field="image-address"
+                                field="recipe-image-address"
                                 value={image}
                                 onChange={setImage}
                                 className="text-base"
+                                aria-label="Recipe image URL"
                             />
                             <div className="flex justify-center">
                                 <button
