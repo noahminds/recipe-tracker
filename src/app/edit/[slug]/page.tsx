@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { ItemsObject } from '@/app/create/page';
+import ImageUploadModal from '@components/inputs/imageUploadModal';
 import '../../globals.css';
 
 interface EditRecipeProps {
@@ -112,16 +113,10 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                     />
                 </div>
                 <div>
-                    {/* TODO: add a functional button that opens a pop-up from which the user can upload an image file*/}
-                    {/* Button placeholder - non-functional */}
-                    <button
-                        id="upload-image"
-                        type="button"
-                        className="border px-2 rounded-full shadow-sm bg-blue-500 text-white"
-                    >
-                        (Optional) Replace the Image
-                    </button>
-                    {/* TODO: include the default image or the recipe image if the user added one */}
+                    <ImageUploadModal
+                        curr_image={image}
+                        onModalSubmit={(input: string) => setImage(input)}
+                    />
                 </div>
                 <section className="grid grid-cols-5">
                     <div className="col-span-2 w-3/4">
