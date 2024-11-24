@@ -53,7 +53,7 @@ This project is a multi-page web app designed to create, manage, and view recipe
 
 ## Credits
 
-- The modal for uploading images was inspired by the tutorial [Modal Tutorial](https://www.youtube.com/watch?v=9DwGahSqcEc) on YouTube.
+- The modal for uploading images was inspired by the tutorial [Create a modal with React (Pop-up)](https://www.youtube.com/watch?v=9DwGahSqcEc) on YouTube.
 
 ---
 
