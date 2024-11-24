@@ -3,7 +3,7 @@
 # RecipeStep Tracker
 
 ## Overview
-This project is a two-page web app designed to create, manage, and view recipes. The goal is to implement key features for recipe management, including creating recipes, displaying them on a homepage, and navigating to individual recipe pages. The app will be built with Next.js and TypeScript, following the requirements of the project.
+This project is a multi-page web app designed to create, manage, and view recipes. A number of key features facilitate recipe management, including creating recipes, displaying them on a homepage as cards, navigating to individual recipe pages, and editing the recipes. The app was built with Next.js and TypeScript.
 
 ---
 
@@ -14,14 +14,12 @@ This project is a two-page web app designed to create, manage, and view recipes.
   - Displays all created recipes as individual cards.
   - Each card includes:
     - The title of the recipe.
-    - [Optional] An image of the recipe (uploaded by the user during recipe creation).
+    - [Optional] An image of the recipe (uploaded by the user).
   - Clicking on a recipe card navigates to a page with the full recipe details.
-  - [Optional] Recipe cards can be searched by title.
-  - [Optional] Local storage is used to persist recipe data between page reloads.
 
 - **Navigation Bar**:
   - A navigation bar at the top of the screen provides access to:
-    - The homepage.
+    - The homepage consisting of all the recipe cards.
     - The recipe creation page.
 
 ### Recipe Creation Page
@@ -30,7 +28,7 @@ This project is a two-page web app designed to create, manage, and view recipes.
     - Recipe title.
     - List of ingredients.
     - Recipe instructions (steps).
-    - [Optional] A photo of the recipe (uploaded by the user).
+    - [Optional] A photo of the recipe.
   - Submitting the form adds the recipe to the homepage as a new recipe card and creates its corresponding detailed recipe page.
 
 ### Recipe Detail Page
@@ -38,15 +36,18 @@ This project is a two-page web app designed to create, manage, and view recipes.
   - Clicking a recipe card on the homepage opens a page with:
     - The recipe's title.
     - The list of ingredients.
-    - The instructions.
-    - [Optional] The recipe's image.
-
-## Impementation Plan
-
-### Dynamic Routing
-- Recipes listed out as links
-  - Recipes link to the dynamic routes
-  - Slugs can be used to pull the id from the link and use a map that store the recipe titles
+    - The ordered list of instructions.
+    - The option to edit the recipe.
+   
+### Recipe Edit Page
+- **Form for Editing Recipes**
+  - A form that allows users to edit their existing recipe, including:
+    - Recipe title.
+    - List of ingredients.
+    - Recipe instructions (steps).
+    - [Optional] A photo of the recipe.
+  - Submitting the form updates the recipe card and detailed recipe page.
+  - The cancel button undoes any changes and redirects the user back to the detailed recipe page.
 
 ---
 
@@ -67,10 +68,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
