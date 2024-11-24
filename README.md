@@ -51,6 +51,12 @@ This project is a multi-page web app designed to create, manage, and view recipe
 
 ---
 
+## Credits
+
+- The modal for uploading images was inspired by the tutorial [Modal Tutorial](https://www.youtube.com/watch?v=9DwGahSqcEc) on YouTube.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
