@@ -31,6 +31,7 @@ export const useRecipeContext = () => useContext(RecipeContext);
 const exampleRecipes: RecipeMap = new Map([
     ["1", {
         title: "Pumpkin Pie",
+        image: "/pumpkin_pie.webp",
         ingredients: ["Pumpkin", "Sugar", "Eggs", "Milk", "Cinnamon", "Pie Crust"],
         instructions: [
             "Mix pumpkin, sugar, eggs, milk, and cinnamon in a bowl.",
@@ -40,6 +41,7 @@ const exampleRecipes: RecipeMap = new Map([
     }],
     ["2", {
         title: "Apple Pie",
+        image: "/apple_pie.webp",
         ingredients: ["Apples", "Sugar", "Cinnamon", "Pie Crust"],
         instructions: [
             "Slice apples.",
@@ -50,6 +52,7 @@ const exampleRecipes: RecipeMap = new Map([
     }],
     ["3", {
         title: "Emince de Veau a la Moutarde",
+        image: "/emince_de_veau.webp",
         ingredients: ["Veal", "Shallots", "Mushrooms", "Dry White Wine", "Mustard", "Cream", "Butter", "Salt", "Pepper"],
         instructions: [
             "Slice veal into thin strips.",
@@ -65,6 +68,7 @@ const exampleRecipes: RecipeMap = new Map([
     }],
     ["4", {
         title: "Spaghetti Carbonara",
+        image: "/spaghetti_carbonara.webp",
         ingredients: ["Spaghetti", "Eggs", "Parmesan Cheese", "Pancetta", "Pepper"],
         instructions: [
             "Cook spaghetti according to package directions.",
