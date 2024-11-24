@@ -30,11 +30,8 @@ export default function RecipePage({ params }: RecipePageProps) {
 
     return (
         <main>
-            <article className="flex flex-col space-y-4 p-8">
-                <h1 className="text-xl">{recipe.title}</h1>
-
-                {/* TODO: Add image */}
-
+            <article className="flex flex-col space-y-8 p-8">
+                <h1 className="text-4xl text-red-800">{recipe.title}</h1>
                 <section className="grid grid-cols-5">
                     <div aria-label="Ingredients">
                         <h2 className="text-lg font-medium underline">Ingredients:</h2>
