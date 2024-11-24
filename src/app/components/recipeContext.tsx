@@ -79,6 +79,20 @@ const exampleRecipes: RecipeMap = new Map([
             "Stir until the eggs are cooked.",
             "Season with pepper.",
         ],
+    }],
+    ["5", {
+        title: "Donuts",
+        image: "https://funcakes.com/content/uploads/2022/03/Donuts-met-dip-n-drip-960x960-c-default.jpg",
+        ingredients: ["Flour", "Sugar", "Eggs", "Milk", "Butter", "Yeast", "Salt"],
+        instructions: [
+            "Mix flour, sugar, yeast, and salt in a bowl.",
+            "Add eggs, milk, and butter.",
+            "Knead the dough until smooth.",
+            "Let the dough rise for 1 hour.",
+            "Roll out the dough and cut into donut shapes.",
+            "Fry the donuts in oil until golden brown.",
+            "Coat with sugar."
+        ]
     }]
 ]);
 
