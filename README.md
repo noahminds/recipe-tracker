@@ -90,6 +90,8 @@ This project is a multi-page web app designed to create, manage, and view recipe
 
 - Another improvement would be implementing storage for recipes so changes persist. Right now, the app doesn’t actually save data, so it’s not a fully functional tool. Adding storage would make it feel more like a real-world app.
 
+- Given that recipes are not persistent, I challenged myself to implement error handling so that if the user refreshed the page on a recipe that did not exist by default (i.e., one they created), it would flash up a screen warning them that the recipe does not exist rather than breaking.
+
 - Lastly, I missed the initial submission deadline by a day, which was unfortunate. But since then, I’ve put in a lot of effort to go above and beyond the requirements. I’m proud of the final result. The app is accessible, visually pleasing, and includes features that make it easy for users to interact with. I hope this reflects the progress I’ve made, even though I didn’t meet the original deadline.
 
 ---
