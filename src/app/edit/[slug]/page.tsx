@@ -28,16 +28,6 @@ export default function EditRecipe({ params }: EditRecipeProps) {
     // Lookup the recipe in the RecipeMap by the slug
     const recipe = slug && recipes.get(slug);
 
-    if (!recipe) {
-        console.log("**ERROR** Recipe not found", slug);
-        return (
-            <main className="flex flex-col items-center justify-center h-screen">
-                <h1 className="text-2xl font-bold text-red-600">Recipe Not Found</h1>
-                <p className="text-lg">The recipe you are looking for does not exist.</p>
-            </main>
-        );
-    }
-
     // Use states for form fields
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState<ItemsObject>({});
@@ -51,6 +41,16 @@ export default function EditRecipe({ params }: EditRecipeProps) {
             setInstructions(arrayToItemsObject(recipe.instructions));
         }
     }, [recipe]);
+
+    if (!recipe) {
+        console.log("**ERROR** Recipe not found", slug);
+        return (
+            <main className="flex flex-col items-center justify-center h-screen">
+                <h1 className="text-2xl font-bold text-red-600">Recipe Not Found</h1>
+                <p className="text-lg">The recipe you are looking for does not exist.</p>
+            </main>
+        );
+    }
 
     // Helper function for removing ingredients
     const handleRemoveIngredient = (id: string) => {
