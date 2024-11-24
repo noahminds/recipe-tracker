@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-mono min-h-screen flex flex-col">
         <header>
+          <link rel="icon" href="/favicon.svg" />
           <Navbar />
         </header>
         <div className="flex-grow">
