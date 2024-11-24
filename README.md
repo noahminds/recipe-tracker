@@ -48,8 +48,11 @@ This project is a multi-page web app designed to create, manage, and view recipe
     - [Optional] A photo of the recipe.
   - Submitting the form updates the recipe card and detailed recipe page.
   - The cancel button undoes any changes and redirects the user back to the detailed recipe page.
+ 
+## Accessibility
 
----
+- All forms for creating and editing recipes are accessible with a screen reader.
+- Navigation of the recipe detail pages is still not fully functional as a screen reader jumps over the recipe details. This is an area for improvement.
 
 ## Credits
 
