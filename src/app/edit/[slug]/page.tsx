@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { ItemsObject } from '@/app/create/page';
-import './styles.css';
+import '../../globals.css';
 
 interface EditRecipeProps {
     params: Promise<{ slug: string }>;

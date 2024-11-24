@@ -23,3 +23,15 @@ body {
 main {
   @apply p-4
 }
+
+label {
+  @apply underline text-lg font-normal;
+}
+
+input {
+  @apply appearance-none block w-full bg-gray-200 text-gray-600 text-xl border-2 border-gray-200 rounded py-3 px-2 mb-3 focus:outline-none focus:bg-white;
+}
+
+textarea {
+  @apply appearance-none block w-full bg-gray-200 text-gray-600 border-2 border-gray-200 rounded py-3 px-2 focus:outline-none focus:bg-white;
+}

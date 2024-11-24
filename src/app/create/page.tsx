@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useRecipeContext, Recipe } from '@components/recipeContext';
 import { TextField, DynamicListField } from '@components/inputs/inputFields'
 import { useState } from 'react';
-import './styles.css';
+import '../globals.css';
 
 // Key - id: string
 // Value - item: string
