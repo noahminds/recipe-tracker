@@ -32,6 +32,7 @@ export default function EditRecipe({ params }: EditRecipeProps) {
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState<ItemsObject>({});
     const [instructions, setInstructions] = useState<ItemsObject>({});
+    const [image, setImage] = useState<string | null>(null);
 
     // Pre-populate the fields when the component mounts or when the recipe changes
     useEffect(() => {
@@ -39,6 +40,7 @@ export default function EditRecipe({ params }: EditRecipeProps) {
             setTitle(recipe.title);
             setIngredients(arrayToItemsObject(recipe.ingredients));
             setInstructions(arrayToItemsObject(recipe.instructions));
+            setImage(recipe.image || null);
         }
     }, [recipe]);
 
@@ -66,6 +68,12 @@ export default function EditRecipe({ params }: EditRecipeProps) {
         setInstructions(updatedInstructions)
     };
 
+    // Helper function for handling the cancel button
+    function handleCancel() {
+        // Route the user back to the recipe's detail page
+        router.push(`/recipes/${slug}`);
+    }
+
     return (
         <main className="text-gray-700 p-8">
             <form
@@ -80,6 +88,10 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                             ingredients: Object.values(ingredients),
                             instructions: Object.values(instructions),
                         };
+
+                        if (image) {
+                            recipe.image = image;
+                        }
 
                         // Replace the existing recipe with the updated one
                         setRecipes(new Map(recipes.set(slug, recipe)));
@@ -151,7 +163,15 @@ export default function EditRecipe({ params }: EditRecipeProps) {
                         />
                     </div>
                 </section>
-                <div>
+                <div className="flex flex-row gap-x-5">
+                    <button
+                        id="cancel-edit"
+                        type="button"
+                        className="border rounded-full px-2 border-gray-600 text-gray-700 text-lg shadow-sm hover:scale-105 hover:shadow-md"
+                        onClick={() => handleCancel()}
+                    >
+                        Cancel
+                    </button>
                     <button
                         id="submit-recipe"
                         type="submit"
