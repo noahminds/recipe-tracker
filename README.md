@@ -74,8 +74,6 @@ This project is a multi-page web app designed to create, manage, and view recipe
 
 - I think I did a good job separating my components. I used smaller, reusable components to build up to larger ones, and then integrated those into the pages. This made it easy to reuse components and keep the code organized. I also leveraged state handling and the Context API throughout the app. For example, I used states to manage dynamic behaviors like activating or deactivating the image upload modal and tracking the various parts of a recipe during creation or editing. The Context API wraps the entire app since all pages need access to the recipe data, but if I added features unrelated to recipes in the future, I could easily scope the context to just the parts that need it.
 
-- When it comes to version control, I think I used Git really effectively. I’ve got over 50 commits, each with meaningful messages that explain what was changed. I committed my code in small, logical chunks, which made it easy to track progress and roll back if needed.
-
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
